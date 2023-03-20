@@ -1,7 +1,27 @@
-export default function Home() {
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Header from '@/components/Header'
+
+const Home: NextPage = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="">
+      <Head>
+        <title>NextFlix</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Header/>
+      <main>
+        {/* Banner */}
+        <section>
+          {/* Row */}
+          {/* Row */}
+          {/* Row */}
+          {/* Row */}
+        </section>
+      </main>
+      {/* Modal */}
+    </div>
   )
 }
+
+export default Home
