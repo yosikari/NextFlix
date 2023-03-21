@@ -2,7 +2,11 @@ import { useState } from "react"
 
 import Head from "next/head"
 import Image from 'next/image'
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form"
+import useAuth from "@/hooks/useAuth"
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Inputs {
     email: string
@@ -11,6 +15,7 @@ interface Inputs {
 
 function login() {
     const [login, setLogin] = useState(false)
+    const { signIn, signUp } = useAuth()
 
     const {
         register,
@@ -19,7 +24,13 @@ function login() {
         formState: { errors },
     } = useForm<Inputs>()
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+        if (login) {
+            await signIn(email, password)
+        } else {
+            await signUp(email, password)
+        }
+    }
 
     return (
         <div className="relative flex h-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
@@ -73,12 +84,22 @@ function login() {
                         )}
                     </label>
                 </div>
-                <button className="w-full rounded bg-[#e50914] py-3 font-semibold">Sign In</button>
+                <button
+                    className="w-full rounded bg-[#e50914] py-3 font-semibold"
+                    onClick={() => setLogin(true)}
+                >Sign In</button>
                 <div className="text-[gray]">
                     New to Nextflix?
-                    <button type='submit' className="ml-2 text-white hover:underline">Sign up now</button>
+                    <button
+                        type='submit'
+                        className="ml-2 text-white hover:underline"
+                        onClick={() => setLogin(false)}
+                    >Sign up now</button>
                 </div>
             </form>
+
+            {/* Flash notification */}
+            <ToastContainer />
         </div>
     )
 }
