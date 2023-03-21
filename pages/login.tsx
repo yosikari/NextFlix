@@ -13,7 +13,7 @@ interface Inputs {
     password: string
 }
 
-function login() {
+function Login() {
     const [login, setLogin] = useState(false)
     const { signIn, signUp } = useAuth()
 
@@ -50,6 +50,7 @@ function login() {
                 className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
                 width={150}
                 height={150}
+                alt="logo"
             />
 
             <form
@@ -104,4 +105,4 @@ function login() {
     )
 }
 
-export default login
+export default Login
