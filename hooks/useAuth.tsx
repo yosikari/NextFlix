@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 setLoading(false)
             })
             .catch((error) => {
-                notify('Cannot sign up')
+                notify(error.message)
                 console.log(error.message)
             })
             .finally(() => setLoading(false))
@@ -109,7 +109,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 setUser(null)
             })
             .catch((error) => {
-                notify('Cannot logged out')
+                notify(error.message)
                 console.log(error.message)
             })
             .finally(() => setLoading(false))

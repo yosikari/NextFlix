@@ -27,12 +27,14 @@ function Modal() {
     }
 
     async function fetchMovie() {
+        console.log(movie)
         const data = await fetch(
             `https://api.themoviedb.org/3/${movie?.media_type === 'tv' ? 'tv' : 'movie'
             }/${movie?.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY
             }&language=en-US&append_to_response=videos`
         ).then((response) => response.json())
         if (data?.videos) {
+            console.log('data', data)
             const index = data.videos.results.findIndex(
                 (element: Element) => element.type === 'Trailer'
             )
@@ -91,7 +93,7 @@ function Modal() {
                 <div className="space-y-6 text-lg">
                     <div className="flex items-center space-x-2 text-sm">
                         <p className="font-semibold text-green-400">
-                            {movie!.vote_average * 10}% Match
+                            {(movie!.vote_average * 10).toFixed(2)}% Match
                         </p>
                         <p className='font-light'>
                             {movie?.release_date || movie?.first_air_date}

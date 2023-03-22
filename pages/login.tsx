@@ -7,6 +7,7 @@ import useAuth from "@/hooks/useAuth"
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaArrowRight } from "react-icons/fa"
 
 interface Inputs {
     email: string
@@ -30,6 +31,10 @@ function Login() {
         } else {
             await signUp(email, password)
         }
+    }
+
+    const guestMod = async () => {
+        await signIn('guest@guest.com', 'guest123')
     }
 
     return (
@@ -80,7 +85,7 @@ function Login() {
                             {...register("password", { required: true })} />
                         {errors.password && (
                             <p className="p-1 text-[13px] text-orange-500">
-                                Your password must contain between 4 and 60 characters.
+                                Your password must contain between 6 and 60 characters.
                             </p>
                         )}
                     </label>
@@ -97,6 +102,13 @@ function Login() {
                         onClick={() => setLogin(false)}
                     >Sign up now</button>
                 </div>
+                <button
+                    className="flex items-center justify-between transition
+                    hover:text-[#e50914] md:hover:w-[50%] "
+                    onClick={guestMod}
+                >Continue as a guest
+                    <FaArrowRight className="w-4 h-4 ml-2" />
+                </button>
             </form>
 
             {/* Flash notification */}
