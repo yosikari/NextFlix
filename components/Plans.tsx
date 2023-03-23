@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { Product } from '@stripe/firestore-stripe-payments'
 import Table from './Table'
+import Loader from './Loader'
 
 
 interface Props {
@@ -13,7 +14,8 @@ interface Props {
 
 function Plans({ products }: Props) {
     const { logout, user } = useAuth()
-    const [selectedPlan, setSelectedPlan] = useState<Product | null | any>(products[2])
+    const [selectedPlan, setSelectedPlan] = useState<Product | null>(products[2])
+    const [isBillingLoading, setIsBillingLoading] = useState(false)
 
     return (
         <div>
@@ -73,8 +75,17 @@ function Plans({ products }: Props) {
                     </div>
                     <Table products={products} selectedPlan={selectedPlan} />
                     <button
-                        className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px]`}
-                    >Subscribe</button>
+                        disabled={!selectedPlan || isBillingLoading}
+                        className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${isBillingLoading && 'opacity-60'
+                            }`}
+                        // onClick={subscribeToPlan}
+                    >
+                        {isBillingLoading ? (
+                            <Loader color="fill-gray-900" />
+                        ) : (
+                            'Subscribe'
+                        )}
+                    </button>
 
                 </div>
             </main>
