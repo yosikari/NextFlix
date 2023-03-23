@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { Product } from '@stripe/firestore-stripe-payments'
 import Table from './Table'
 import Loader from './Loader'
+import { loadCheckout } from '@/lib/stripe'
+import CardNote from './CardNote'
 
 
 interface Props {
@@ -13,9 +15,21 @@ interface Props {
 }
 
 function Plans({ products }: Props) {
+
     const { logout, user } = useAuth()
     const [selectedPlan, setSelectedPlan] = useState<Product | null>(products[2])
     const [isBillingLoading, setIsBillingLoading] = useState(false)
+
+    const [isClipboardCard, setIsClipboardCard] = useState(false)
+    const [isClipboardCVC, setIsClipboardCVC] = useState(false)
+    const [isClipboardDate, setIsClipboardDate] = useState(false)
+
+
+    const subscribeToPlan = () => {
+        if (!user) return
+        loadCheckout(selectedPlan?.prices[0].id!)
+        setIsBillingLoading(true)
+    }
 
     return (
         <div>
@@ -78,7 +92,7 @@ function Plans({ products }: Props) {
                         disabled={!selectedPlan || isBillingLoading}
                         className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${isBillingLoading && 'opacity-60'
                             }`}
-                        // onClick={subscribeToPlan}
+                        onClick={subscribeToPlan}
                     >
                         {isBillingLoading ? (
                             <Loader color="fill-gray-900" />
@@ -87,9 +101,11 @@ function Plans({ products }: Props) {
                         )}
                     </button>
 
-                </div>
-            </main>
-        </div>
+                    <CardNote />
+
+                </div >
+            </main >
+        </div >
     )
 }
 
