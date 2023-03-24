@@ -1,10 +1,8 @@
-import useAuth from '@/hooks/useAuth'
 import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 function Header() {
-    const { logout } = useAuth()
     const [isScrolled, setIsScrolled] = useState(false)
 
     useEffect(() => {
@@ -50,7 +48,6 @@ function Header() {
                         src="https://rb.gy/g1pwyx"
                         alt=""
                         className="cursor-pointer rounded"
-                        onClick={logout}
                     />
                 </Link>
             </div>

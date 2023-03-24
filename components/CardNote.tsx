@@ -12,7 +12,7 @@ function CardNote() {
   return (
     <div className='text-left border m-auto rounded p-4' >
     <div className='flex justify-center'>
-        <HiOutlineInformationCircle className='h-6 w-6 mr-1' />
+        <HiOutlineInformationCircle className='h-6 w-6 mr-1 mt-0.5' />
         <p className='text-xl'> Note - try test visa card:</p>
     </div>
     <div
