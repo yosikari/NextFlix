@@ -33,7 +33,7 @@ function MyList() {
         <Link href="/account">
           <img
             src="https://rb.gy/g1pwyx"
-            alt=""
+            alt="user"
             className="cursor-pointer rounded"
           />
         </Link>
@@ -54,7 +54,7 @@ function MyList() {
             <Row title="" movies={list} />:
             <div>
                 <h2 className='text-xl'>Your watchlist is empty.</h2>
-                <a className='membershipLink' href='/'>Go back</a>
+                <Link className='membershipLink' href='/'>Go back</Link>
             </div>
           }
         </div>
