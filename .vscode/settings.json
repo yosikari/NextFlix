@@ -3,6 +3,8 @@
         "firestore",
         "fixex",
         "Flix",
-        "heroicons"
+        "heroicons",
+        "mylist",
+        "Nextflix"
     ]
 }
