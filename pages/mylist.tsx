@@ -40,7 +40,7 @@ function MyList() {
       </header>
       <main className="mx-auto max-w-6xl px-5 pt-24 pb-12 transition-all md:px-10">
         <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
-          <h1 className="text-3xl md:text-4xl">My List</h1>
+          <h1 className="text-3xl md:text-4xl">My Watchlist</h1>
           <div className="-ml-0.5 flex items-center gap-x-1.5">
             <img src="https://rb.gy/4vfk4r" alt="" className="h-7 w-7" />
             <p className="text-xs font-semibold text-[#555]">
@@ -50,8 +50,12 @@ function MyList() {
         </div>
 
         <div className="grid-cols-4 border-x-0 border-t border-b-0 px-0 mt-2 pt-2">
-        {list.length > 0 &&
-            <Row title="" movies={list} />
+        {list.length > 0 ?
+            <Row title="" movies={list} />:
+            <div>
+                <h2 className='text-xl'>Your watchlist is empty.</h2>
+                <a className='membershipLink' href='/'>Go back</a>
+            </div>
           }
         </div>
       </main>

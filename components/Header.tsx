@@ -37,7 +37,7 @@ function Header() {
                     <li className="headerLink">Tv Shows</li>
                     <li className="headerLink">Movies</li>
                     <li className="headerLink">New & Popular</li>
-                    <li className="headerLink" ><a href='/mylist'>My List</a></li>
+                    <li className="headerLink" ><Link href='/mylist'>My List</Link></li>
                 </ul>
             </div>
 

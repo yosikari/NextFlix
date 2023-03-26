@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function HeaderMenu() {
@@ -41,7 +42,7 @@ export default function HeaderMenu() {
                 <MenuItem onClick={handleClose}>TV Shows</MenuItem>
                 <MenuItem onClick={handleClose}>Movies</MenuItem>
                 <MenuItem onClick={handleClose}>New & Popular</MenuItem>
-                <MenuItem onClick={handleClose}><a href='/mylist'>My List</a></MenuItem>
+                <MenuItem onClick={handleClose}><Link href='/mylist'>My List</Link></MenuItem>
             </Menu>
         </div>
     )
