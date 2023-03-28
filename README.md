@@ -6,7 +6,7 @@ Check it out here: https://next-flix-ebon.vercel.app/
 
 ## Project Features
 
-- Login \ Sign up \ Guest mod - responsive to any device login page.
+- Login \ Sign up \ Guest mod \ Google login - responsive to any device login page.
 
 - Plans - the user have to choose a different plans to subscribe to the app. 
 
@@ -84,7 +84,7 @@ Install dependencies:
 `npm install`
 
 Start the server: 
-`npm start`
+`npm run dev`
 
 **The website should be available at** http://localhost:3000/.
 
@@ -120,9 +120,9 @@ If you have any questions or feedback about the project, please feel free to rea
 
 <h4>Responsive Design</h4>
 <h5>Tablet</h5>
-<img src='/readme-images/login.png' width="600"/> 
+<img src='/readme-images/tablet.png' width="600"/> 
 <h5>Mobile</h5>
-<img src='/readme-images/login.png' width="600"/> 
+<img src='/readme-images/mobile.png' width="600"/> 
 
 
 
