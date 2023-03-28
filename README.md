@@ -6,7 +6,7 @@ Check it out here: https://next-flix-ebon.vercel.app/
 
 ## Project Features
 
-- Login \ Sign up \ Guest mod \ Google login - responsive to any device login page.
+- Login \ Sign up \ Guest mod \ Google login \ Facebook login - responsive to any device login page.
 
 - Plans - the user have to choose a different plans to subscribe to the app. 
 
