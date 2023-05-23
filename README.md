@@ -2,7 +2,7 @@
 
 <img src='/readme-images/home.png' /> 
 
-Check it out here: https://next-flix-ebon.vercel.app/
+Check it out here: https://next-flix-git-main-yosikari.vercel.app
 
 ## Project Features
 
